@@ -34,6 +34,9 @@ void printList( int *p, int size );
 
 void *fnsort( void *arg )
 {
+
+    // printf("THREAD RUNNING\n");
+
     struct pthrarg *pargs;
     int *num, swap;
     mypthread_mutex_t *mtx0, *mtx1;
@@ -188,6 +191,7 @@ int main( int argc, char **argv )
     // Waiting the threads to complete the sorting
     //////////
     printf( "waiting...\n" );
+
 
     for( i = 0; i < nListSize-1; i++ )
         mypthread_join( threads[i], 0 );

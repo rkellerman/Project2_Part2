@@ -11,11 +11,23 @@
 
 struct threadNode; //defined in .c class
 
+enum threadState {
+
+	ACTIVE,
+	BLOCKED,
+	DEAD
+
+};
+
 typedef struct{
     //Thread ID
     short tid;
     //Pointer to thread node
     struct threadNode * mynode;
+    enum threadState state;
+    ucontext_t * context;
+    int from;
+
 } mypthread_t;
 
 typedef struct {
